@@ -1,0 +1,16 @@
+<svg width="800" height="300" xmlns="http://www.w3.org/2000/svg">
+<circle cx="50" cy="150" r="30" fill="gold" />
+<text x="30" y="200" font-size="18">태양</text>
+<circle cx="150" cy="150" r="15" fill="#6faaff" stroke="#333" stroke-width="2" />
+<text x="130" y="190" font-size="16">머큐리아</text>
+<text x="130" y="110" font-size="14">🌞</text>
+<circle cx="300" cy="150" r="12" fill="#6faaff" stroke="#333" stroke-width="2" />
+<text x="280" y="190" font-size="16">비누시아</text>
+<text x="280" y="110" font-size="14">🌗</text>
+<circle cx="450" cy="150" r="13" fill="#6faaff" stroke="#333" stroke-width="2" />
+<text x="430" y="190" font-size="16">어스시아</text>
+<text x="430" y="110" font-size="14">🌑</text>
+<circle cx="600" cy="150" r="15" fill="#6faaff" stroke="#333" stroke-width="2" />
+<text x="580" y="190" font-size="16">마르시아</text>
+<text x="580" y="110" font-size="14">🌑</text>
+</svg>
