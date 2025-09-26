@@ -1,0 +1,14 @@
+[
+  {
+    "id": "src-qc-1",
+    "title": "Google AI Quantum Supremacy Experiment",
+    "url": "https://ai.googleblog.com/2019/10/quantum-supremacy-using-superconducting.html",
+    "trust": "High"
+  },
+  {
+    "id": "src-qc-2",
+    "title": "IBM Quantum Experience",
+    "url": "https://quantum-computing.ibm.com/",
+    "trust": "Medium"
+  }
+]

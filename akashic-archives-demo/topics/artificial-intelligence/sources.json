@@ -1,0 +1,14 @@
+[
+  {
+    "id": "src-ai-1",
+    "title": "OpenAI GPT-3 Paper",
+    "url": "https://arxiv.org/abs/2005.14165",
+    "trust": "High"
+  },
+  {
+    "id": "src-ai-2",
+    "title": "Deep Learning Book by Ian Goodfellow",
+    "url": "https://www.deeplearningbook.org/",
+    "trust": "High"
+  }
+]

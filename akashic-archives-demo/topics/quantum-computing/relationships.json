@@ -1,0 +1,14 @@
+[
+  {
+    "source": "qc-entity-1",
+    "target": "qc-entity-2",
+    "type": "OperatedBy",
+    "description": "Qubit은 Quantum Gate에 의해 조작된다."
+  },
+  {
+    "source": "qc-entity-2",
+    "target": "qc-entity-3",
+    "type": "Enables",
+    "description": "Quantum Gate의 발전이 Quantum Supremacy 달성에 기여한다."
+  }
+]

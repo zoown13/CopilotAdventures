@@ -1,0 +1,12 @@
+[
+  {
+    "id": "quantum-computing",
+    "title": "Quantum Computing",
+    "description": "양자 컴퓨팅의 핵심 개념, 엔터티, 관계, 신뢰도 높은 출처를 포함한 지식 도메인."
+  },
+  {
+    "id": "artificial-intelligence",
+    "title": "Artificial Intelligence",
+    "description": "인공지능의 주요 개념, 방법론, 응용 분야 및 관련 관계와 출처."
+  }
+]

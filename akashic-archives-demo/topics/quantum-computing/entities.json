@@ -1,0 +1,20 @@
+[
+  {
+    "id": "qc-entity-1",
+    "name": "Quantum Bit (Qubit)",
+    "type": "Concept",
+    "description": "기존 비트와 달리 중첩(superposition)과 얽힘(entanglement)을 활용하는 양자 정보 단위."
+  },
+  {
+    "id": "qc-entity-2",
+    "name": "Quantum Gate",
+    "type": "Concept",
+    "description": "양자 비트의 상태를 변화시키는 논리 연산 장치."
+  },
+  {
+    "id": "qc-entity-3",
+    "name": "Quantum Supremacy",
+    "type": "Milestone",
+    "description": "양자 컴퓨터가 고전 컴퓨터를 능가하는 계산을 수행할 수 있는 시점."
+  }
+]

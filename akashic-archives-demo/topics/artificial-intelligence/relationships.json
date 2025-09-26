@@ -1,0 +1,14 @@
+[
+  {
+    "source": "ai-entity-1",
+    "target": "ai-entity-2",
+    "type": "FoundationOf",
+    "description": "Neural Network는 Deep Learning의 기반이 된다."
+  },
+  {
+    "source": "ai-entity-2",
+    "target": "ai-entity-3",
+    "type": "Enables",
+    "description": "Deep Learning은 Large Language Model 구현을 가능하게 한다."
+  }
+]
