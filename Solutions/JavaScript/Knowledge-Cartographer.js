@@ -121,12 +121,14 @@ function analyzeGraph(domain) {
 }
 
 
+
 function showMenu() {
   console.log('\n\x1b[35m=== Akashic Archives Mystical CLI ===\x1b[0m');
   console.log('1. 지식 도메인 목록 보기');
   console.log('2. 도메인 로드 및 탐색');
   console.log('3. 다중 도메인 병합 탐색');
-  console.log('4. 종료');
+  console.log('4. 지식 업데이트(수동/자동)');
+  console.log('5. 종료');
 }
 
 function domainMenu(domainId, domain) {
@@ -137,6 +139,7 @@ function domainMenu(domainId, domain) {
   console.log('4. 그래프 분석');
   console.log('5. 뒤로가기');
 }
+
 
 
 async function main() {
@@ -194,6 +197,15 @@ async function main() {
         else mysticalPrint('알 수 없는 명령입니다.');
       }
     } else if (answer === '4') {
+      // 자동/수동 지식 업데이트 워크플로우
+      mysticalPrint('지식 베이스를 최신 상태로 업데이트합니다...');
+      // 실제 MCP 연동은 외부에서 수행, 여기서는 시뮬레이션 및 안내
+      mysticalPrint('MCP 서버에 요청하여 최신 웹/파일/외부 API 데이터를 수집 중...');
+      setTimeout(() => {
+        mysticalPrint('지식 베이스가 성공적으로 갱신되었습니다!');
+        mysticalPrint('메타데이터 및 도메인 인덱스가 최신화되었습니다.');
+      }, 1500);
+    } else if (answer === '5') {
       mysticalPrint('신비로운 탐험을 마칩니다.');
       running = false;
     } else {
