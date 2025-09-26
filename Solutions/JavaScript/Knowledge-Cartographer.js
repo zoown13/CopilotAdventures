@@ -38,6 +38,7 @@ function listTopics() {
   return topics.map(t => t.id);
 }
 
+
 function loadDomain(domainId) {
   const dir = path.join(BASE_DIR, 'topics', domainId);
   return {
@@ -45,6 +46,37 @@ function loadDomain(domainId) {
     relationships: loadJSON(path.join(dir, 'relationships.json')) || [],
     sources: loadJSON(path.join(dir, 'sources.json')) || []
   };
+}
+
+function mergeDomains(domainIds) {
+  // 여러 도메인 id를 받아 병합된 그래프 반환
+  let merged = { entities: [], relationships: [], sources: [] };
+  let entityIds = new Set();
+  let relSet = new Set();
+  let srcSet = new Set();
+  domainIds.forEach(id => {
+    const d = loadDomain(id);
+    d.entities.forEach(e => {
+      if (!entityIds.has(e.id)) {
+        merged.entities.push(e);
+        entityIds.add(e.id);
+      }
+    });
+    d.relationships.forEach(r => {
+      const relKey = `${r.source}->${r.target}:${r.type}`;
+      if (!relSet.has(relKey)) {
+        merged.relationships.push(r);
+        relSet.add(relKey);
+      }
+    });
+    d.sources.forEach(s => {
+      if (!srcSet.has(s.id)) {
+        merged.sources.push(s);
+        srcSet.add(s.id);
+      }
+    });
+  });
+  return merged;
 }
 
 function showEntities(domain) {
@@ -88,11 +120,13 @@ function analyzeGraph(domain) {
   });
 }
 
+
 function showMenu() {
   console.log('\n\x1b[35m=== Akashic Archives Mystical CLI ===\x1b[0m');
   console.log('1. 지식 도메인 목록 보기');
   console.log('2. 도메인 로드 및 탐색');
-  console.log('3. 종료');
+  console.log('3. 다중 도메인 병합 탐색');
+  console.log('4. 종료');
 }
 
 function domainMenu(domainId, domain) {
@@ -103,6 +137,7 @@ function domainMenu(domainId, domain) {
   console.log('4. 그래프 분석');
   console.log('5. 뒤로가기');
 }
+
 
 async function main() {
   const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
@@ -136,6 +171,29 @@ async function main() {
         else mysticalPrint('알 수 없는 명령입니다.');
       }
     } else if (answer === '3') {
+      // 다중 도메인 병합 탐색
+      const topicIds = listTopics();
+      mysticalPrint('병합할 도메인 id들을 쉼표로 입력하세요 (예: quantum-computing,artificial-intelligence)');
+      const input = await new Promise(res => rl.question('도메인 id들 > ', res));
+      const ids = input.split(',').map(s => s.trim()).filter(s => topicIds.includes(s));
+      if (ids.length < 2) {
+        mysticalPrint('2개 이상의 유효한 도메인 id가 필요합니다.');
+        continue;
+      }
+      const merged = mergeDomains(ids);
+      mysticalPrint(`병합된 도메인: ${ids.join(', ')}`);
+      let exploring = true;
+      while (exploring) {
+        domainMenu('병합', merged);
+        const sub = await new Promise(res => rl.question('서브 명령 선택 > ', res));
+        if (sub === '1') showEntities(merged);
+        else if (sub === '2') showRelationships(merged);
+        else if (sub === '3') showSources(merged);
+        else if (sub === '4') analyzeGraph(merged);
+        else if (sub === '5') exploring = false;
+        else mysticalPrint('알 수 없는 명령입니다.');
+      }
+    } else if (answer === '4') {
       mysticalPrint('신비로운 탐험을 마칩니다.');
       running = false;
     } else {
